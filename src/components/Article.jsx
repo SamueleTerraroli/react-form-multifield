@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
 const Article = ({ title, editArticle, deleteArticle }) => {
-
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(title);
 
   const handleSave = () => {
-    editArticle(newTitle);
+    editArticle({ title: newTitle });
     setIsEditing(false);
   };
 
@@ -23,15 +22,14 @@ const Article = ({ title, editArticle, deleteArticle }) => {
     </li>
   ) : (
     <li className="list-group-item d-flex justify-content-between align-items-center">
-      {title}
       <div>
-        <button onClick={() => setIsEditing(true)} className="btn btn-primary btn-sm me-2">Modifica</button>
+        <h5>{title}</h5>
+      </div>
+      <div> <button onClick={() => setIsEditing(true)} className="btn btn-primary btn-sm me-2">Modifica</button>
         <button onClick={deleteArticle} className="btn btn-danger btn-sm">Elimina</button>
       </div>
     </li>
   );
 }
 
-
-
-export default Article
+export default Article;

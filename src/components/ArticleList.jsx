@@ -4,10 +4,10 @@ const ArticleList = ({ articles, editArticle, deleteArticle }) => {
 
     return (
         <ul className="list-group">
-            {articles.map((title, index) => (
+            {articles.map((article, index) => (
                 <Article
                     key={index}
-                    title={title}
+                    title={article.title}
                     editArticle={(newTitle) => editArticle(index, newTitle)}
                     deleteArticle={() => deleteArticle(index)}
                 />
@@ -16,4 +16,4 @@ const ArticleList = ({ articles, editArticle, deleteArticle }) => {
     )
 }
 
-export default ArticleList
+export default ArticleList;
